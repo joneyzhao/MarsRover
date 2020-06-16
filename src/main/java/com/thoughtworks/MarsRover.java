@@ -9,8 +9,16 @@ public class MarsRover {
 
     public MarsRoverPosition travel(String command) {
         String initDirection = this.marsRoverPosition.getDirection();
-        if ("M".equals(command)) {
-            move(initDirection);
+        int coordinateX = this.marsRoverPosition.getCoordinateX();
+        int coordinateY = this.marsRoverPosition.getCoordinateY();
+        if (coordinateX < 5 && coordinateY < 5) {
+            if ("M".equals(command)) {
+                move(initDirection);
+            }
+        } else if(coordinateX >= 5 || coordinateY >= 5){
+            if ("M".equals(command)) {
+                return this.marsRoverPosition;
+            }
         }
         if ("R".equals(command)) {
             turnRigth(initDirection);

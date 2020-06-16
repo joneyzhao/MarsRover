@@ -162,7 +162,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void should_move_to_position_00S_when_direct_is_MLR_with_init_position_00W(){
+    public void should_move_to_position__10E_when_direct_is_MLL_with_init_position_00W(){
         //given
         MarsRoverPosition marsRoverPosition = new MarsRoverPosition(0, 0, "W");
         MarsRover marsRover = new MarsRover(marsRoverPosition);
@@ -176,4 +176,34 @@ public class MarsRoverTest {
         assertEquals("E", resultPosition3.getDirection());
     }
 
+    @Test
+    public void should_move_to_position_50S_when_direct_is_RMLLL_with_init_position_40N(){
+        //given
+        MarsRoverPosition marsRoverPosition = new MarsRoverPosition(4, 0, "N");
+        MarsRover marsRover = new MarsRover(marsRoverPosition);
+        //when
+        marsRover.travel("R");
+        marsRover.travel("M");
+        marsRover.travel("L");
+        marsRover.travel("L");
+        MarsRoverPosition resultPosition3 = marsRover.travel("L");
+        //then
+        assertEquals(5, resultPosition3.getCoordinateX());
+        assertEquals(0, resultPosition3.getCoordinateY());
+        assertEquals("S", resultPosition3.getDirection());
+    }
+
+    @Test
+    public void should_move_to_position_50E_when_direct_is_RMLLL_with_init_position_50N(){
+        //given
+        MarsRoverPosition marsRoverPosition = new MarsRoverPosition(5, 0, "N");
+        MarsRover marsRover = new MarsRover(marsRoverPosition);
+        //when
+        marsRover.travel("R");
+        MarsRoverPosition resultPosition = marsRover.travel("M");
+        //then
+        assertEquals(5, resultPosition.getCoordinateX());
+        assertEquals(0, resultPosition.getCoordinateY());
+        assertEquals("E", resultPosition.getDirection());
+    }
 }
