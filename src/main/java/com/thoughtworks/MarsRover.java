@@ -9,52 +9,14 @@ public class MarsRover {
 
     public MarsRoverPosition travel(String command) {
         String initDirection = this.marsRoverPosition.getDirection();
-        if ("N".equals(initDirection)){
-            if ("M".equals(command)) {
-                move(initDirection);
-            }
-            if ("R".equals(command)) {
-                turnRigth(initDirection);
-            }
-            if ("L".equals(command)) {
-                turnLeft(initDirection);
-            }
+        if ("M".equals(command)) {
+            move(initDirection);
         }
-
-        if ("E".equals(initDirection)){
-            if ("M".equals(command)) {
-                move(initDirection);
-            }
-            if ("R".equals(command)) {
-                turnRigth(initDirection);
-            }
-            if ("L".equals(command)) {
-                turnLeft(initDirection);
-            }
+        if ("R".equals(command)) {
+            turnRigth(initDirection);
         }
-
-        if ("S".equals(initDirection)){
-            if ("M".equals(command)) {
-                move(initDirection);
-            }
-            if ("R".equals(command)) {
-                turnRigth(initDirection);
-            }
-            if ("L".equals(command)) {
-                turnLeft(initDirection);
-            }
-        }
-
-        if ("W".equals(initDirection)){
-            if ("M".equals(command)) {
-                move(initDirection);
-            }
-            if ("R".equals(command)) {
-                turnRigth(initDirection);
-            }
-            if ("L".equals(command)) {
-                turnLeft(initDirection);
-            }
+        if ("L".equals(command)) {
+            turnLeft(initDirection);
         }
         return this.marsRoverPosition;
     }
