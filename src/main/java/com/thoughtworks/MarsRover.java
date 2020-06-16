@@ -1,17 +1,26 @@
 package com.thoughtworks;
 
-import java.util.Map;
-
 public class MarsRover {
+    private MarsRoverPosition marsRoverPosition;
 
-    public String move(Map position, String m) {
-        String result = "";
-        if ("N".equals(position.get("direct"))) {
-            String coordinateY = (String) position.get("coordinateY");
-            int newCoordinateY = Integer.valueOf(coordinateY) + 1;
-            position.put("coordinateY",String.valueOf(newCoordinateY));
-            result = (String) position.get("coordinateX") + position.get("coordinateY") + position.get("direct");
+    public MarsRover(MarsRoverPosition marsRoverPosition) {
+        this.marsRoverPosition = marsRoverPosition;
+    }
+
+    public MarsRoverPosition travel(String command) {
+        if ("M".equals(command)) {
+            int coordinateY = this.marsRoverPosition.getCoordinateY();
+            int newCoordinateY = coordinateY + 1;
+            this.marsRoverPosition.setCoordinateY(newCoordinateY);
         }
-        return result;
+        if ("R".equals(command)) {
+            String direction = "E";
+            this.marsRoverPosition.setDirection(direction);
+        }
+        if ("L".equals(command)) {
+            String direction = "W";
+            this.marsRoverPosition.setDirection(direction);
+        }
+        return this.marsRoverPosition;
     }
 }
