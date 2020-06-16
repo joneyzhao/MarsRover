@@ -11,9 +11,7 @@ public class MarsRover {
         String initDirection = this.marsRoverPosition.getDirection();
         if ("N".equals(initDirection)){
             if ("M".equals(command)) {
-                int coordinateY = this.marsRoverPosition.getCoordinateY();
-                int newCoordinateY = coordinateY + 1;
-                this.marsRoverPosition.setCoordinateY(newCoordinateY);
+                move(initDirection);
             }
             if ("R".equals(command)) {
                 String direction = "E";
@@ -73,5 +71,13 @@ public class MarsRover {
             }
         }
         return this.marsRoverPosition;
+    }
+
+    private void move(String initDirection) {
+        if("N".equals(initDirection)){
+            int coordinateY = this.marsRoverPosition.getCoordinateY();
+            int newCoordinateY = coordinateY + 1;
+            this.marsRoverPosition.setCoordinateY(newCoordinateY);
+        }
     }
 }
