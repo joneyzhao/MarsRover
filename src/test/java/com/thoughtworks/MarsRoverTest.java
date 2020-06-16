@@ -163,7 +163,17 @@ public class MarsRoverTest {
 
     @Test
     public void should_move_to_position_00S_when_direct_is_MLR_with_init_position_00W(){
-
+        //given
+        MarsRoverPosition marsRoverPosition = new MarsRoverPosition(0, 0, "W");
+        MarsRover marsRover = new MarsRover(marsRoverPosition);
+        //when
+        marsRover.travel("M");
+        marsRover.travel("L");
+        MarsRoverPosition resultPosition3 = marsRover.travel("L");
+        //then
+        assertEquals(-1, resultPosition3.getCoordinateX());
+        assertEquals(0, resultPosition3.getCoordinateY());
+        assertEquals("E", resultPosition3.getDirection());
     }
 
 }
