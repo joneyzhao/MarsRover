@@ -167,9 +167,7 @@ public class MarsRoverTest {
         MarsRoverPosition marsRoverPosition = new MarsRoverPosition(0, 0, "W");
         MarsRover marsRover = new MarsRover(marsRoverPosition);
         //when
-        marsRover.travel("M");
-        marsRover.travel("L");
-        MarsRoverPosition resultPosition3 = marsRover.travel("L");
+        MarsRoverPosition resultPosition3 = marsRover.travel("M,L,L");
         //then
         assertEquals(-1, resultPosition3.getCoordinateX());
         assertEquals(0, resultPosition3.getCoordinateY());
@@ -182,11 +180,7 @@ public class MarsRoverTest {
         MarsRoverPosition marsRoverPosition = new MarsRoverPosition(4, 0, "N");
         MarsRover marsRover = new MarsRover(marsRoverPosition);
         //when
-        marsRover.travel("R");
-        marsRover.travel("M");
-        marsRover.travel("L");
-        marsRover.travel("L");
-        MarsRoverPosition resultPosition3 = marsRover.travel("L");
+        MarsRoverPosition resultPosition3 = marsRover.travel("R,M,L,L,L");
         //then
         assertEquals(5, resultPosition3.getCoordinateX());
         assertEquals(0, resultPosition3.getCoordinateY());
@@ -199,11 +193,23 @@ public class MarsRoverTest {
         MarsRoverPosition marsRoverPosition = new MarsRoverPosition(5, 0, "N");
         MarsRover marsRover = new MarsRover(marsRoverPosition);
         //when
-        marsRover.travel("R");
-        MarsRoverPosition resultPosition = marsRover.travel("M");
+        MarsRoverPosition resultPosition = marsRover.travel("R,M,L,L");
         //then
         assertEquals(5, resultPosition.getCoordinateX());
         assertEquals(0, resultPosition.getCoordinateY());
         assertEquals("E", resultPosition.getDirection());
+    }
+
+    @Test
+    public void should_move_to_position_50E_when_direct_is_RMLLL_with_init_position__50N(){
+//        //given
+//        MarsRoverPosition marsRoverPosition = new MarsRoverPosition(-5, 0, "N");
+//        MarsRover marsRover = new MarsRover(marsRoverPosition);
+//        //when
+//        MarsRoverPosition resultPosition = marsRover.travel("R,M,L,L");
+//        //then
+//        assertEquals(-5, resultPosition.getCoordinateX());
+//        assertEquals(0, resultPosition.getCoordinateY());
+//        assertEquals("E", resultPosition.getDirection());
     }
 }

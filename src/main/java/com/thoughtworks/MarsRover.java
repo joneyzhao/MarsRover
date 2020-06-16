@@ -1,5 +1,8 @@
 package com.thoughtworks;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MarsRover {
     private MarsRoverPosition marsRoverPosition;
 
@@ -11,20 +14,25 @@ public class MarsRover {
         String initDirection = this.marsRoverPosition.getDirection();
         int coordinateX = this.marsRoverPosition.getCoordinateX();
         int coordinateY = this.marsRoverPosition.getCoordinateY();
-        if (coordinateX < 5 && coordinateY < 5) {
-            if ("M".equals(command)) {
-                move(initDirection);
+
+        List<String> commandList = Arrays.asList(command.split(","));
+        for(String commandItem : commandList) {
+            initDirection = this.marsRoverPosition.getDirection();
+            if (coordinateX < 5 && coordinateY < 5) {
+                if ("M".equals(commandItem)) {
+                    move(initDirection);
+                }
+            } else if(coordinateX >= 5 || coordinateY >= 5){
+                if ("M".equals(commandItem)) {
+                    return this.marsRoverPosition;
+                }
             }
-        } else if(coordinateX >= 5 || coordinateY >= 5){
-            if ("M".equals(command)) {
-                return this.marsRoverPosition;
+            if ("R".equals(commandItem)) {
+                turnRigth(initDirection);
             }
-        }
-        if ("R".equals(command)) {
-            turnRigth(initDirection);
-        }
-        if ("L".equals(command)) {
-            turnLeft(initDirection);
+            if ("L".equals(commandItem)) {
+                turnLeft(initDirection);
+            }
         }
         return this.marsRoverPosition;
     }
