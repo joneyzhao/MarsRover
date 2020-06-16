@@ -8,18 +8,69 @@ public class MarsRover {
     }
 
     public MarsRoverPosition travel(String command) {
-        if ("M".equals(command)) {
-            int coordinateY = this.marsRoverPosition.getCoordinateY();
-            int newCoordinateY = coordinateY + 1;
-            this.marsRoverPosition.setCoordinateY(newCoordinateY);
+        String initDirection = this.marsRoverPosition.getDirection();
+        if ("N".equals(initDirection)){
+            if ("M".equals(command)) {
+                int coordinateY = this.marsRoverPosition.getCoordinateY();
+                int newCoordinateY = coordinateY + 1;
+                this.marsRoverPosition.setCoordinateY(newCoordinateY);
+            }
+            if ("R".equals(command)) {
+                String direction = "E";
+                this.marsRoverPosition.setDirection(direction);
+            }
+            if ("L".equals(command)) {
+                String direction = "W";
+                this.marsRoverPosition.setDirection(direction);
+            }
         }
-        if ("R".equals(command)) {
-            String direction = "E";
-            this.marsRoverPosition.setDirection(direction);
+
+        if ("E".equals(initDirection)){
+            if ("M".equals(command)) {
+                int coordinateX = this.marsRoverPosition.getCoordinateX();
+                int newCoordinateX = coordinateX + 1;
+                this.marsRoverPosition.setCoordinateX(newCoordinateX);
+            }
+            if ("R".equals(command)) {
+                String direction = "S";
+                this.marsRoverPosition.setDirection(direction);
+            }
+            if ("L".equals(command)) {
+                String direction = "N";
+                this.marsRoverPosition.setDirection(direction);
+            }
         }
-        if ("L".equals(command)) {
-            String direction = "W";
-            this.marsRoverPosition.setDirection(direction);
+
+        if ("S".equals(initDirection)){
+            if ("M".equals(command)) {
+                int coordinateY = this.marsRoverPosition.getCoordinateY();
+                int newCoordinateY = coordinateY - 1;
+                this.marsRoverPosition.setCoordinateY(newCoordinateY);
+            }
+            if ("R".equals(command)) {
+                String direction = "W";
+                this.marsRoverPosition.setDirection(direction);
+            }
+            if ("L".equals(command)) {
+                String direction = "E";
+                this.marsRoverPosition.setDirection(direction);
+            }
+        }
+
+        if ("W".equals(initDirection)){
+            if ("M".equals(command)) {
+                int coordinateX = this.marsRoverPosition.getCoordinateX();
+                int newCoordinateX = coordinateX - 1;
+                this.marsRoverPosition.setCoordinateX(newCoordinateX);
+            }
+            if ("R".equals(command)) {
+                String direction = "N";
+                this.marsRoverPosition.setDirection(direction);
+            }
+            if ("L".equals(command)) {
+                String direction = "S";
+                this.marsRoverPosition.setDirection(direction);
+            }
         }
         return this.marsRoverPosition;
     }
