@@ -18,11 +18,11 @@ public class MarsRover {
         List<String> commandList = Arrays.asList(command.split(","));
         for(String commandItem : commandList) {
             initDirection = this.marsRoverPosition.getDirection();
-            if (coordinateX < 5 && coordinateY < 5) {
+            if (Math.abs(coordinateX) < 5 && Math.abs(coordinateY) < 5) {
                 if ("M".equals(commandItem)) {
                     move(initDirection);
                 }
-            } else if(coordinateX >= 5 || coordinateY >= 5){
+            } else if(Math.abs(coordinateX) >= 5 || Math.abs(coordinateY) >= 5){
                 if ("M".equals(commandItem)) {
                     return this.marsRoverPosition;
                 }

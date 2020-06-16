@@ -202,14 +202,14 @@ public class MarsRoverTest {
 
     @Test
     public void should_move_to_position_50E_when_direct_is_RMLLL_with_init_position__50N(){
-//        //given
-//        MarsRoverPosition marsRoverPosition = new MarsRoverPosition(-5, 0, "N");
-//        MarsRover marsRover = new MarsRover(marsRoverPosition);
-//        //when
-//        MarsRoverPosition resultPosition = marsRover.travel("R,M,L,L");
-//        //then
-//        assertEquals(-5, resultPosition.getCoordinateX());
-//        assertEquals(0, resultPosition.getCoordinateY());
-//        assertEquals("E", resultPosition.getDirection());
+        //given
+        MarsRoverPosition marsRoverPosition = new MarsRoverPosition(-5, 0, "N");
+        MarsRover marsRover = new MarsRover(marsRoverPosition);
+        //when
+        MarsRoverPosition resultPosition = marsRover.travel("L,M,R,R");
+        //then
+        assertEquals(-5, resultPosition.getCoordinateX());
+        assertEquals(0, resultPosition.getCoordinateY());
+        assertEquals("W", resultPosition.getDirection());
     }
 }
