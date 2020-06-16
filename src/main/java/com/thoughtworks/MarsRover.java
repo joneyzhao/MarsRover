@@ -17,8 +17,7 @@ public class MarsRover {
                 turnRigth(initDirection);
             }
             if ("L".equals(command)) {
-                String direction = "W";
-                this.marsRoverPosition.setDirection(direction);
+                turnLeft(initDirection);
             }
         }
 
@@ -30,8 +29,7 @@ public class MarsRover {
                 turnRigth(initDirection);
             }
             if ("L".equals(command)) {
-                String direction = "N";
-                this.marsRoverPosition.setDirection(direction);
+                turnLeft(initDirection);
             }
         }
 
@@ -43,8 +41,7 @@ public class MarsRover {
                 turnRigth(initDirection);
             }
             if ("L".equals(command)) {
-                String direction = "E";
-                this.marsRoverPosition.setDirection(direction);
+                turnLeft(initDirection);
             }
         }
 
@@ -56,11 +53,29 @@ public class MarsRover {
                 turnRigth(initDirection);
             }
             if ("L".equals(command)) {
-                String direction = "S";
-                this.marsRoverPosition.setDirection(direction);
+                turnLeft(initDirection);
             }
         }
         return this.marsRoverPosition;
+    }
+
+    private void turnLeft(String initDirection) {
+        if ("N".equals(initDirection)){
+            String direction = "W";
+            this.marsRoverPosition.setDirection(direction);
+        }
+        if ("E".equals(initDirection)){
+            String direction = "N";
+            this.marsRoverPosition.setDirection(direction);
+        }
+        if ("S".equals(initDirection)){
+            String direction = "E";
+            this.marsRoverPosition.setDirection(direction);
+        }
+        if ("W".equals(initDirection)){
+            String direction = "S";
+            this.marsRoverPosition.setDirection(direction);
+        }
     }
 
     private void turnRigth(String initDirection) {
